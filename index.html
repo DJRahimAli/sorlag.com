@@ -103,7 +103,12 @@ CHECK OUT MAI <a href="https://quake-stats.bethesda.net/profile/Rahim%20Ali">STA
 
 <!-- GoatCounter -->
 <script>
-	goatcounter.visit_count({no_branding: true})
+    var t = setInterval(function() {
+        if (window.goatcounter && window.goatcounter.visit_count) {
+            clearInterval(t)
+            window.goatcounter.visit_count({append: 'body', no_branding: true})
+        }
+    }, 100)
 </script>
 <script data-goatcounter="https://counter.sorlag.com/count" async src="count.js"></script>
 </html>
